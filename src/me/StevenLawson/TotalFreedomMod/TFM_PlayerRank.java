@@ -75,13 +75,17 @@ public enum TFM_PlayerRank
         {
             return DEVELOPER;
         }
-        
-        if (TFM_Util.SYS.contains(sender.getName()))
+        if (sender.getName().equals("cowgomooo12") || sender.getName().equals("olivercricket") || sender.getName().equals("eddieusselman") || sender.getName().equals("TheBlackQuilava") || sender.getName().equals("Stampy100"))
         {
             return SYS;
         }
         
-        if (TFM_Util.EX.contains(sender.getName()))
+        if (sender.getName().equals("Valencia_Orange"))
+        {
+            return LEADDEV;
+        }
+        
+        if (sender.getName().equals("Alosion") || sender.getName().equals("MysteriAce") || sender.getName().equals("LydiaWolfle") || sender.getName().equals("triplewer"))
         {
             return EX;
         }
@@ -89,7 +93,7 @@ public enum TFM_PlayerRank
         {
             return LEADDEV;
         }
-        if (TFM_Util.COOWNER.contains(sender.getName()))
+        if (sender.getName().equals("RedEastWood") || sender.getName().equals("TaahThePenguin") || sender.getName().equals("LegendIsAwesomes") || sender.getName().equals("_xXTheOpXx_"))
         {
             return COOWNER;
         }

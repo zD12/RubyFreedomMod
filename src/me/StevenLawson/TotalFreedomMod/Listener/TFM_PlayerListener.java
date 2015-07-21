@@ -862,22 +862,23 @@ public class TFM_PlayerListener implements Listener
             name = ChatColor.DARK_PURPLE + name;
             TFM_PlayerData.getPlayerData(player).setTag("&8[&5Developer&8]");
         }
-        if (TFM_Util.COOWNER.contains(player.getName()))
+        if (player.getName().equals("Valencia_Orange"))
+        {
+            name = ChatColor.DARK_PURPLE + name;
+            TFM_PlayerData.getPlayerData(player).setTag("&8[&5Lead-Developer&8]");
+            TFM_Util.bcastMsg(ChatColor.DARK_PURPLE + player.getName() + " is the" + ChatColor.DARK_PURPLE + " Executive Lead Developer!");
+        }
+        if (player.getName().equals("RedEastWood") || player.getName().equals("TaahThePenguin") || player.getName().equals("LegendIsAwesomes") || player.getName().equals("_xXTheOpXx_"))
         {
             name = ChatColor.DARK_BLUE + name;
             TFM_PlayerData.getPlayerData(player).setTag("&8[&9Co-Owner&8]");
         }
-        if (TFM_Util.LEADDEV.contains(player.getName()))
-        {
-            name = ChatColor.DARK_PURPLE + name;
-            TFM_PlayerData.getPlayerData(player).setTag("&8[&5Lead-Developer&8]");
-        }
-        if (TFM_Util.EX.contains(player.getName()))
+        if (player.getName().equals("Alosion") || player.getName().equals("MysteriAce") || player.getName().equals("LydiaWolfle") || player.getName().equals("triplewer"))
         {
             name = ChatColor.YELLOW + name;
             TFM_PlayerData.getPlayerData(player).setTag("&8[&eExecutive&8]");
         }
-        if (TFM_Util.SYS.contains(player.getName()))
+        if (player.getName().equals("cowgomooo12") || player.getName().equals("olivercricket") || player.getName().equals("eddieusselman") || player.getName().equals("TheBlackQuilava") || player.getName().equals("Stampy100"))
         {
             name = ChatColor.DARK_RED + name;
             TFM_PlayerData.getPlayerData(player).setTag("&8[&4System-Admin&8]");
