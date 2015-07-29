@@ -85,7 +85,7 @@ public enum TFM_PlayerRank
             return LEADDEV;
         }
         
-        if (sender.getName().equals("Alosion") || sender.getName().equals("MysteriAce") || sender.getName().equals("LydiaWolfle") || sender.getName().equals("triplewer"))
+        if (sender.getName().equals("Alosion") || sender.getName().equals("MysteriAce") || sender.getName().equals("LydiaWolfle") || sender.getName().equals("triplewer") || sender.getName().equals("Xx_Dawg_xX") || sender.getName().equals("camille20009"))
         {
             return EX;
         }
