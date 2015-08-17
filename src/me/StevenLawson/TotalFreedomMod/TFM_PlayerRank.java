@@ -22,6 +22,7 @@ public enum TFM_PlayerRank
     LEADDEV("The " + ChatColor.DARK_PURPLE + "Lead Developer", ChatColor.DARK_PURPLE + "[L.Dev]"),
     EX("a " + ChatColor.YELLOW + "Executive", ChatColor.YELLOW + "[Exec]"),
     COOWNER("a " + ChatColor.BLUE + "Co Owner", ChatColor.BLUE + "[C.Owner]"),
+    MYSTERI("a " + ChatColor.RED + "Potato Caek", ChatColor.GOLD + "[Executive]"),
     CONSOLE("The " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_PURPLE + "[Console]");
     private final String loginMessage;
     private final String prefix;
@@ -84,7 +85,10 @@ public enum TFM_PlayerRank
         {
             return LEADDEV;
         }
-        
+       if (sender.getName().equals("MysteriAce"))
+        {
+            return MYSTERI;
+        }        
         if (sender.getName().equals("Alosion") || sender.getName().equals("MysteriAce") || sender.getName().equals("LydiaWolfle") || sender.getName().equals("triplewer") || sender.getName().equals("xBadDawgx") || sender.getName().equals("camille20009"))
         {
             return EX;
