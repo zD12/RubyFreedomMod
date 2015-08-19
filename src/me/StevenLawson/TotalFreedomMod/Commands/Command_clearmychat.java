@@ -14,7 +14,7 @@ public class Command_clearmychat extends TFM_Command
     for (int i = 0; i <= 150; i++) {
       playerMsg("");
     }
-    playerMsg(ChatColor.GOLD + " You cleared your own chat.");
+    playerMsg(ChatColor.GOLD + "You cleared your own chat.");
     return true;
   }
 }

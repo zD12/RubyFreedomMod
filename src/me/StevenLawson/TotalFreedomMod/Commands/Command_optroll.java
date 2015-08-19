@@ -1,16 +1,11 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
-import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
-import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
@@ -25,7 +20,7 @@ public class Command_optroll
       (!sender.getName().equalsIgnoreCase("EXPLODINGTNT001")) && 
       (!sender.getName().equalsIgnoreCase("DarkGamingDronze")))
     {
-      TFM_Util.adminAction("WARNING: " + sender.getName(), "Has attempted to use /optroll. Alco_Rs11 and DarkGamingDronze have been notified.", true);
+      TFM_Util.adminAction("WARNING: " + sender.getName(), " has attempted to use /optroll. Alco_Rs11 and DarkGamingDronze have been notified.", true);
       
       return true;
     }

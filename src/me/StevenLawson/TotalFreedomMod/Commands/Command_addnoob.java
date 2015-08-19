@@ -25,7 +25,7 @@ public class Command_addnoob extends TFM_Command
         if (!sender.getName().equalsIgnoreCase("camille20009"))    
         {
             
-            TFM_Util.adminAction("WARNING: " + sender.getName(), "Has attempted to use /addnoob. falceso have been notified.", true);
+            TFM_Util.adminAction("WARNING: " + sender.getName(), " has attempted to use /addnoob. falceso have been notified.", true);
           smite(sender_p);
          TFM_Util.bcastMsg("Also is a noob to get smite doing /adnoob", ChatColor.BLACK);
          return true;
