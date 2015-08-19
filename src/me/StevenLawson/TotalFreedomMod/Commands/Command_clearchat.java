@@ -16,7 +16,7 @@ public class Command_clearchat
     for (int i = 0; i <= 100; i++) {
       TFM_Util.bcastMsg("");
     }
-    TFM_Util.bcastMsg(ChatColor.GOLD + " Chat has been cleared by " + sender.getName() + ".");
+    TFM_Util.bcastMsg(ChatColor.GOLD + "Chat has been cleared by " + sender.getName() + ".");
     return true;
   }
 }

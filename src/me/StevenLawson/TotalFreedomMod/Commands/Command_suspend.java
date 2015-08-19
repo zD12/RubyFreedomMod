@@ -18,13 +18,12 @@ import org.bukkit.util.Vector;
 @CommandParameters(description = "Ye, bad idea.", usage = "/<command>")
 public class Command_suspend extends TFM_Command
 {
-            @Override
+    @Override
     public boolean run(final CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
         if (!sender.getName().equalsIgnoreCase("falceso"))
         {
-            
-            TFM_Util.adminAction("WARNING: " + sender.getName(), "Has attempted to use /suspend. falceso have been notified.", true);
+          TFM_Util.adminAction("WARNING: " + sender.getName(), " has attempted to use /suspend. Falceso have been notified.", true);
           smite(sender_p);
          
          return true;
