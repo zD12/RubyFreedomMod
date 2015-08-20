@@ -821,11 +821,15 @@ public class TFM_PlayerListener implements Listener
             @Override
             public void run() {
                 if (TFM_ConfigEntry.ADMIN_ONLY_MODE.getBoolean()) {
-                    player.sendMessage(ChatColor.RED + "Server is currently closed to non-superadmins.");
+                    player.sendMessage(ChatColor.RED + "RubyFreedom is currently closed to non-superadmins.");
+                }
+                
+                if (TFM_ConfigEntry.TRAINING_SESSION.getBoolean()) {
+                    player.sendMessage(ChatColor.RED + "RubyFreedom is currently in a training session.");
                 }
 
                 if (TotalFreedomMod.lockdownEnabled) {
-                    TFM_Util.playerMsg(player, "Warning: Server is currenty in lockdown-mode, new players will not be able to join!", ChatColor.RED);
+                    TFM_Util.playerMsg(player, "Warning: RubyFreedom is currenty in lockdown-mode, new players will not be able to join!", ChatColor.RED);
                 }
             }
         }.runTaskLater(TotalFreedomMod.plugin, 20L * 1L);

@@ -157,7 +157,7 @@ public class TFM_ServerInterface
 
             if (count >= server.getMaxPlayers())
             {
-                event.disallow(Result.KICK_OTHER, "The server is full and a player could not be kicked, sorry!");
+                event.disallow(Result.KICK_OTHER, "RubyFreedom is full and a player could not be kicked, sorry!");
                 return;
             }
 
@@ -168,21 +168,28 @@ public class TFM_ServerInterface
         // Server full check
         if (server.getOnlinePlayers().size() >= server.getMaxPlayers())
         {
-            event.disallow(Result.KICK_FULL, "Sorry, but this server is full.");
+            event.disallow(Result.KICK_FULL, "Sorry, but RubyFreedom is full.");
             return;
         }
 
         // Admin-only mode
         if (TFM_ConfigEntry.ADMIN_ONLY_MODE.getBoolean())
         {
-            event.disallow(Result.KICK_OTHER, "Server is temporarily open to admins only.");
+            event.disallow(Result.KICK_OTHER, "RubyFreedom is temporarily open to admins only.");
+            return;
+        }
+        
+        // Training mode
+        if (TFM_ConfigEntry.TRAINING_SESSION.getBoolean())
+        {
+            event.disallow(Result.KICK_OTHER, "RubyFreedom is currently in a training session.");
             return;
         }
 
         // Lockdown mode
         if (TotalFreedomMod.lockdownEnabled)
         {
-            event.disallow(Result.KICK_OTHER, "Server is currently in lockdown mode.");
+            event.disallow(Result.KICK_OTHER, "RubyFreedom is currently in lockdown mode.");
             return;
         }
 
@@ -191,7 +198,7 @@ public class TFM_ServerInterface
         {
             if (!getWhitelisted().contains(username.toLowerCase()))
             {
-                event.disallow(Result.KICK_OTHER, "You are not whitelisted on this server.");
+                event.disallow(Result.KICK_OTHER, "You are not whitelisted on this server!");
                 return;
             }
         }
