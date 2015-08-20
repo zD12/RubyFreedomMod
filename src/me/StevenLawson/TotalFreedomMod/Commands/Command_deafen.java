@@ -1,6 +1,8 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
 import java.util.Random;
+import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
@@ -8,16 +10,19 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-@CommandPermissions(level = AdminLevel.SENIOR, source = SourceType.BOTH, blockHostConsole = true)
+@CommandPermissions(level = AdminLevel.SUPER, source = SourceType.ONLY_IN_GAME, blockHostConsole = true)
 @CommandParameters(description = "Make some noise.", usage = "/<command>")
-public class Command_deafen extends TFM_Command
-{
+public class Command_deafen extends TFM_Command {
     private static final Random random = new Random();
     public static final double STEPS = 10.0;
 
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
+        if (!TFM_ConfigEntry.SERVER_OWNERS.getList().contains(sender.getName())) {
+            sender.sendMessage(ChatColor.RED + "Only owners may execute this command.");
+            return true;
+        }
         for (final Player player : server.getOnlinePlayers())
         {
             for (double percent = 0.0; percent <= 1.0; percent += (1.0 / STEPS))
