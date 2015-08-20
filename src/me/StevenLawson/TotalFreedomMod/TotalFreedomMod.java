@@ -21,6 +21,7 @@ import me.StevenLawson.TotalFreedomMod.Listener.TFM_ServerListener;
 import me.StevenLawson.TotalFreedomMod.Listener.TFM_WeatherListener;
 import me.StevenLawson.TotalFreedomMod.World.TFM_AdminWorld;
 import me.StevenLawson.TotalFreedomMod.World.TFM_Flatlands;
+import org.apache.commons.lang.Validate;
 import org.bukkit.Server;
 import org.bukkit.World;
 import org.bukkit.command.Command;
@@ -67,9 +68,9 @@ public class TotalFreedomMod extends JavaPlugin
         TotalFreedomMod.server = plugin.getServer();
         TotalFreedomMod.pluginName = plugin.getDescription().getName();
         TotalFreedomMod.pluginVersion = plugin.getDescription().getVersion();
-
         TFM_Log.setPluginLogger(plugin.getLogger());
         TFM_Log.setServerLogger(server.getLogger());
+        Validate.notNull(plugin);
 
         setAppProperties();
     }

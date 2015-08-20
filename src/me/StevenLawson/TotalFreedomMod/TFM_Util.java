@@ -62,17 +62,16 @@ import org.bukkit.entity.Projectile;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.FileUtil;
 
-public class TFM_Util
-{
+public class TFM_Util {
     private static final Map<String, Integer> ejectTracker = new HashMap<String, Integer>();
     public static final Map<String, EntityType> mobtypes = new HashMap<String, EntityType>();
     // See https://github.com/TotalFreedom/License - None of the listed names may be removed.
-    public static final List<String> DEVELOPERS = Arrays.asList("Madgeek1450", "Prozza", "DarthSalmon", "AcidicCyanide", "Wild1145", "WickedGamingUK", "Alex33856");
-    private static final Random RANDOM = new Random();
-    public static final List<String> EX = Arrays.asList("Alosion", "MysteriAce", "LydiaWolfle", "triplewer", "Xx_Dawg_xX", "camille20009");
-    public static final List<String> SYS = Arrays.asList("cowgomooo12", "olivercricket", "eddieusselman", "TheBlackQuilava", "Stampy100", "falceso");
+    public static final List<String> DEVELOPERS = Arrays.asList("Madgeek1450", "Prozza", "DarthSalmon", "AcidicCyanide", "Wild1145", "WickedGamingUK");
+    public static final List<String> EX = Arrays.asList("Alosion", "MysteriAce", "LydiaWolfle", "Triplewer", "xBadDawgx", "camille20009");
+    public static final List<String> SYS = Arrays.asList("cowgomooo12", "olivercricket", "eddieusselman", " Kawaii_Blake", "xYurippe", "Stampy100", "falceso");
     public static final List<String> COOWNER = Arrays.asList("RedEastWood", "TaahThePenguin", "LegendIsAwesomes", "_xXTheOpXx_");
     public static final List<String> LEADDEV = Arrays.asList("Valencia_Orange");
+    private static final Random RANDOM = new Random();
     public static String DATE_STORAGE_FORMAT = "EEE, d MMM yyyy HH:mm:ss Z";
     public static final Map<String, ChatColor> CHAT_COLOR_NAMES = new HashMap<String, ChatColor>();
     public static final List<ChatColor> CHAT_COLOR_POOL = Arrays.asList(
@@ -1147,4 +1146,14 @@ public class TFM_Util
             TFM_Log.info("DEBUG: " + timerName + " used " + this.getTotal() + " ms.");
         }
     }
+
+    // Start FOPM Changes //
+    public static boolean inGod(Player player) {
+        return TFM_PlayerData.getPlayerData(player).inGod();
+    }
+    
+    public static void setGod(Player player, boolean enabled) {
+        TFM_PlayerData.getPlayerData(player).setGod(enabled);
+    }
+    // End FOPM Changes //
 }
