@@ -1,5 +1,6 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
+import me.StevenLawson.TotalFreedomMod.FOPM_TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerData;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import org.apache.commons.lang3.StringUtils;
@@ -31,7 +32,7 @@ public class Command_devchat extends TFM_Command
         }
         else
         {
-            TFM_Util.DevChatMessage(sender, StringUtils.join(args, " "), senderIsConsole);
+            FOPM_TFM_Util.DevChatMessage(sender, StringUtils.join(args, " "), senderIsConsole);
         }
 
         return true;

@@ -16,18 +16,15 @@ import org.bukkit.entity.Player;
 
 @CommandPermissions(level=AdminLevel.ALL, source=SourceType.BOTH)
 @CommandParameters(description="Shows information about RubyFreedomMod or reloads it", usage="/<command> [reload]")
-public class Command_rfm
-  extends TFM_Command
-{
-  public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
-  {
+public class Command_rfm extends TFM_Command {
+  private TotalFreedomMod plugin;
+  public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole) {
     if (args.length == 1)
     {
       if (!args[0].equals("reload")) {
         return false;
       }
-      if (!TFM_AdminList.isSuperAdmin(sender))
-      {
+      if (!TFM_AdminList.isSuperAdmin(sender)) {
         playerMsg(TFM_Command.MSG_NO_PERMS);
         return true;
       }
@@ -38,16 +35,16 @@ public class Command_rfm
       TFM_BanManager.load();
       TFM_CommandBlocker.load();
       
-      String message = String.format("RubyFreedomMod 4.3.5 reloaded.", new Object[] { TotalFreedomMod.pluginName, TotalFreedomMod.pluginVersion, TotalFreedomMod.buildNumber });
+      String message = String.format("RubyFreedomMod v" + plugin.getDescription().getVersion() + " reloaded.", new Object[] { TotalFreedomMod.pluginName, TotalFreedomMod.pluginVersion, TotalFreedomMod.buildNumber });
       
       playerMsg(message);
       TFM_Log.info(message);
       return true;
     }
-    TFM_Util.playerMsg(sender_p, " RubyFreedomMod:", ChatColor.GOLD);
+    TFM_Util.playerMsg(sender_p, "RubyFreedomMod:", ChatColor.GOLD);
     TFM_Util.playerMsg(sender_p, "Made by: Valencia_Orange, DarkGamingDronze and falceso", ChatColor.GREEN);
-    TFM_Util.playerMsg(sender_p, "Made in the image of the TotalFreedomMod but with more features and �eflexibility.", ChatColor.GOLD);
-    TFM_Util.playerMsg(sender_p, "This plugin is version 74.3.5", ChatColor.GOLD);
+    TFM_Util.playerMsg(sender_p, "This plugin is a fork of the TotalFreedomMod but with added features and more flexibility.", ChatColor.GOLD);
+    TFM_Util.playerMsg(sender_p, "Running RubyFreedomMod v" + plugin.getDescription().getVersion(), ChatColor.GOLD);
     
     return true;
   }

@@ -9,6 +9,7 @@ import java.util.Random;
 import java.util.regex.Pattern;
 import me.StevenLawson.TotalFreedomMod.Commands.Command_landmine;
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
+import me.StevenLawson.TotalFreedomMod.FOPM_TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_BanManager;
 import me.StevenLawson.TotalFreedomMod.TFM_CommandBlocker;
@@ -620,10 +621,28 @@ public class TFM_PlayerListener implements Listener
             event.setCancelled(true);
         }
 
-        if (!TFM_AdminList.isSuperAdmin(player)) {
-            for (Player pl : Bukkit.getOnlinePlayers()) {
-                if (TFM_AdminList.isSuperAdmin(pl) && TFM_PlayerData.getPlayerData(pl).cmdspyEnabled()) {
-                    TFM_Util.playerMsg(pl, player.getName() + ": " + command);
+        ChatColor colour = ChatColor.GRAY;
+        if (command.contains("//"))
+        {
+            colour = ChatColor.RED;
+        }
+        if (!TFM_AdminList.isSuperAdmin(player))
+        {
+            for (Player pl : Bukkit.getOnlinePlayers())
+            {
+                if (TFM_AdminList.isSuperAdmin(pl) && TFM_PlayerData.getPlayerData(pl).cmdspyEnabled())
+                {
+                    TFM_Util.playerMsg(pl, colour + player.getName() + ": " + command);
+                }
+            }
+        }
+        else
+        {
+            for (Player pl : Bukkit.getOnlinePlayers())
+            {
+                if (FOPM_TFM_Util.isHighRank(pl) && TFM_PlayerData.getPlayerData(pl).cmdspyEnabled() && player != pl)
+                {
+                    TFM_Util.playerMsg(pl, colour + player.getName() + ": " + command);
                 }
             }
         }
@@ -826,7 +845,7 @@ public class TFM_PlayerListener implements Listener
     public void onPlayerHurt(EntityDamageEvent event) {
         if (event.getEntity() instanceof Player) {
             Player player = (Player) event.getEntity();
-            if (TFM_Util.inGod(player)) {
+            if (FOPM_TFM_Util.inGod(player)) {
                 event.setCancelled(true);
             }
         }
@@ -846,7 +865,7 @@ public class TFM_PlayerListener implements Listener
                 Arrow arrow = (Arrow) event.getDamager();
                 if (arrow.getShooter() instanceof Player) {
                     Player player = (Player) arrow.getShooter();
-                    if (player.getGameMode() == GameMode.CREATIVE || TFM_Util.inGod(player)) {
+                    if (player.getGameMode() == GameMode.CREATIVE || FOPM_TFM_Util.inGod(player)) {
                         TFM_Util.playerMsg(player, "NO GM / GOD PVP!", ChatColor.DARK_RED);
                         event.setCancelled(true);
                     }

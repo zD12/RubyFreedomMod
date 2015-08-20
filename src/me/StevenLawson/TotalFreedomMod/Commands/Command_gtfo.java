@@ -1,9 +1,7 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
-import me.StevenLawson.TotalFreedomMod.Bridge.TFM_WorldEditBridge;
 import me.StevenLawson.TotalFreedomMod.TFM_Ban;
 import me.StevenLawson.TotalFreedomMod.TFM_BanManager;
-import me.StevenLawson.TotalFreedomMod.TFM_RollbackManager;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TFM_UuidManager;
 import org.apache.commons.lang3.ArrayUtils;
@@ -43,17 +41,22 @@ public class Command_gtfo extends TFM_Command
 
         TFM_Util.bcastMsg(player.getName() + " has been a VERY naughty, naughty boy.", ChatColor.RED);
 
-        // Undo WorldEdits:
-        try
-        {
-            TFM_WorldEditBridge.undo(player, 15);
-        }
-        catch (NoClassDefFoundError ex)
-        {
-        }
+        // Silently rollback the user with CoreProtect
+        server.dispatchCommand(sender, "co rb u:" + player.getName() + " t:24h r:global #silent");
 
-        // rollback
-        TFM_RollbackManager.rollback(player.getName());
+        // Disabled TFM RollbackManager and WorldEdit undones due to Coreprotect is handle it now.
+        // Undo WorldEdits:
+        /*       try
+         {
+         TFM_WorldEditBridge.undo(player, 15);
+         }
+         catch (NoClassDefFoundError ex)
+         {
+         }
+
+         // rollback
+         TFM_RollbackManager.rollback(player.getName());
+         */
 
         // deop
         player.setOp(false);
@@ -87,7 +90,7 @@ public class Command_gtfo extends TFM_Command
 
         if (reason != null)
         {
-            bcast.append(" - Reason: ").append(ChatColor.YELLOW).append(reason).append(" ").append(ChatColor.GOLD).append(sender.getName());
+            bcast.append(" - Reason: ").append(ChatColor.YELLOW).append(reason);
         }
 
         TFM_Util.bcastMsg(bcast.toString());
@@ -98,7 +101,7 @@ public class Command_gtfo extends TFM_Command
         TFM_BanManager.addUuidBan(new TFM_Ban(TFM_UuidManager.getUniqueId(player), player.getName(), sender.getName(), null, reason));
 
         // kick Player:
-        player.kickPlayer(ChatColor.RED + "GTFO" + (reason != null ? ("\nReason: " + ChatColor.YELLOW + reason) : "") + ChatColor.GOLD + sender.getName());
+        player.kickPlayer(ChatColor.RED + "You have been banned (GTFO)" + (reason != null ? ("\nReason: " + ChatColor.YELLOW + reason + "(" + sender.getName() + ")") : ""));
 
         return true;
     }

@@ -67,6 +67,7 @@ public class TFM_Util {
     public static final Map<String, EntityType> mobtypes = new HashMap<String, EntityType>();
     // See https://github.com/TotalFreedom/License - None of the listed names may be removed.
     public static final List<String> DEVELOPERS = Arrays.asList("Madgeek1450", "Prozza", "DarthSalmon", "AcidicCyanide", "Wild1145", "WickedGamingUK");
+    public static final List<String> FOP_DEVELOPERS = Arrays.asList("Paldiu", "xDestroyer217", "Freelix2000", "Cyro1999"); // this isn't used, but we are keeping it for credit reasoning
     public static final List<String> EX = Arrays.asList("Alosion", "MysteriAce", "LydiaWolfle", "Triplewer", "xBadDawgx", "camille20009");
     public static final List<String> SYS = Arrays.asList("cowgomooo12", "olivercricket", "eddieusselman", " Kawaii_Blake", "xYurippe", "Stampy100", "falceso");
     public static final List<String> COOWNER = Arrays.asList("RedEastWood", "TaahThePenguin", "LegendIsAwesomes", "_xXTheOpXx_");
@@ -153,7 +154,7 @@ public class TFM_Util {
 
     public static void adminAction(String adminName, String action, boolean isRed)
     {
-        TFM_Util.bcastMsg(adminName + " - " + action, (isRed ? ChatColor.RED : ChatColor.YELLOW));
+        TFM_Util.bcastMsg(adminName + " - " + action, (isRed ? ChatColor.RED : ChatColor.AQUA));
     }
 
     public static String getIp(OfflinePlayer player)
@@ -292,34 +293,6 @@ public class TFM_Util {
                         block.setType(material);
                     }
                 }
-            }
-        }
-    }
-
-    public static void SeniorAdminChatMessage(CommandSender sender, String message, boolean senderIsConsole)
-    {
-        String name = sender.getName() + " " + TFM_PlayerRank.fromSender(sender).getPrefix() + ChatColor.WHITE;
-        TFM_Log.info("[Senior-Admin] " + name + ": " + message);
-
-        for (Player player : Bukkit.getOnlinePlayers())
-        {
-            if (TFM_AdminList.isSeniorAdmin(player))
-            {
-                player.sendMessage(ChatColor.AQUA + "[" + ChatColor.RED + "SrA Chat" + ChatColor.AQUA + "] " + ChatColor.DARK_RED + name + ": " + ChatColor.RED + message);
-            }
-        }
-    }
-    
-    public static void DevChatMessage(CommandSender sender, String message, boolean senderIsConsole)
-    {
-        String name = sender.getName() + " " + TFM_PlayerRank.fromSender(sender).getPrefix() + ChatColor.WHITE;
-        TFM_Log.info("[DevChat] " + name + ": " + message);
-
-        for (Player player : Bukkit.getOnlinePlayers())
-        {
-            if (TFM_AdminList.isSuperAdmin(player))
-            {
-                player.sendMessage(ChatColor.AQUA + "[" + ChatColor.DARK_PURPLE + "Dev Chat" + ChatColor.AQUA + "] " + ChatColor.DARK_RED + name + ": " + ChatColor.RED + message);
             }
         }
     }
@@ -1146,14 +1119,4 @@ public class TFM_Util {
             TFM_Log.info("DEBUG: " + timerName + " used " + this.getTotal() + " ms.");
         }
     }
-
-    // Start FOPM Changes //
-    public static boolean inGod(Player player) {
-        return TFM_PlayerData.getPlayerData(player).inGod();
-    }
-    
-    public static void setGod(Player player, boolean enabled) {
-        TFM_PlayerData.getPlayerData(player).setGod(enabled);
-    }
-    // End FOPM Changes //
 }

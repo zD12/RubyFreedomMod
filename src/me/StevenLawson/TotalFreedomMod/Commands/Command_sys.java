@@ -3,6 +3,7 @@ package me.StevenLawson.TotalFreedomMod.Commands;
 import static me.StevenLawson.TotalFreedomMod.Commands.Command_smite.smite;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -21,7 +22,7 @@ public class Command_sys extends TFM_Command
         if (!TFM_Util.SYS.contains(sender.getName()) && !TFM_Util.DEVELOPERS.contains(sender.getName()) && !TFM_Util.COOWNER.contains(sender.getName()) && !TFM_Util.EX.contains(sender.getName()) && !TFM_Util.LEADDEV.contains(sender.getName()))
         {
             playerMsg(TFM_Command.MSG_NO_PERMS);
-            TFM_Util.adminAction("WARNING: " + sender.getName(), "Has attempted to use a system admin only command. System administration team has been alerted.", true);
+            Bukkit.broadcastMessage(ChatColor.RED + "WARNING: " + sender.getName() + " has attempted to use a system admin only command. System administration team has been alerted.");
             smite(sender_p);
             //lol smites them if they cant do /sys i'm really evil :)
             return true;

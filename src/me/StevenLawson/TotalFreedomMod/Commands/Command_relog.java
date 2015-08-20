@@ -1,6 +1,5 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
-import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -19,7 +18,7 @@ public class Command_relog extends TFM_Command
         for (Player player : server.getOnlinePlayers())
         
             {
-                player.kickPlayer(ChatColor.RED + "RubyFreedom: You have been kicked by " + sender.getName() + "  because the server reload or for another reason "  + ".");
+                player.kickPlayer(ChatColor.RED + "RubyFreedom: You have been kicked by " + sender.getName() + "  because of a server reload or for another reason.");
             }
         
 

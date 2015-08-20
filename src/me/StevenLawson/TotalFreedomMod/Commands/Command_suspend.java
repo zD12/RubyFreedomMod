@@ -6,6 +6,7 @@ import me.StevenLawson.TotalFreedomMod.TFM_Ban;
 import me.StevenLawson.TotalFreedomMod.TFM_BanManager;
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerList;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
@@ -23,7 +24,7 @@ public class Command_suspend extends TFM_Command
     {
         if (!sender.getName().equalsIgnoreCase("falceso"))
         {
-          TFM_Util.adminAction("WARNING: " + sender.getName(), " has attempted to use /suspend. Falceso have been notified.", true);
+          Bukkit.broadcastMessage(ChatColor.RED + "WARNING: " + sender.getName() + " has attempted to use /suspend. Falceso have been notified.");
           smite(sender_p);
          
          return true;

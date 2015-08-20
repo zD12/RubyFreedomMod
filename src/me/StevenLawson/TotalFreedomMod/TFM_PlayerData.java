@@ -109,6 +109,7 @@ public class TFM_PlayerData
     private int warningCount = 0;
     // Start FOPM Changes //
     private boolean inGod = false;
+    private boolean isDoubleJumper = false;
     // End FOPM Changes //
 
     private TFM_PlayerData(Player player, UUID uuid, String ip)
@@ -156,6 +157,14 @@ public class TFM_PlayerData
 
     public void setGod(boolean state) {
         this.inGod = state;
+    }
+    
+    public boolean isDoubleJumper() {
+        return this.isDoubleJumper;
+    }
+
+    public void setDoubleJumper(boolean state) {
+        this.isDoubleJumper = state;
     }
     // End FOPM Changes //
 
