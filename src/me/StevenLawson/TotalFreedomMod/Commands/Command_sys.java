@@ -54,6 +54,8 @@ public class Command_sys extends TFM_Command
         	TFM_AdminList.removeSuperadmin(player);
         }
         
+        
+        
         if (mode.equals("teston"))
         {
         	TFM_Util.bcastMsg(ChatColor.RED + "WARNING: " + sender.getName() + " has started testing on this server.");
