@@ -344,8 +344,8 @@ public class TFM_AdminList
     {
         return adminList.get(uuid);
     }
-
-    @Deprecated
+    
+    // Not deprecated due to the fact that it is still being used in saconfig
     public static TFM_Admin getEntry(String name)
     {
         for (UUID uuid : adminList.keySet())
