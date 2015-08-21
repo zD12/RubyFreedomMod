@@ -1,8 +1,12 @@
 package me.StevenLawson.TotalFreedomMod;
 
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
+import static me.StevenLawson.TotalFreedomMod.TFM_Util.COOWNER;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.DEVELOPERS;
-import me.StevenLawson.TotalFreedomMod.TFM_Util;
+import static me.StevenLawson.TotalFreedomMod.TFM_Util.EX;
+import static me.StevenLawson.TotalFreedomMod.TFM_Util.FOP_DEVELOPERS;
+import static me.StevenLawson.TotalFreedomMod.TFM_Util.LEADDEV;
+import static me.StevenLawson.TotalFreedomMod.TFM_Util.RF_DEVELOPERS;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.SYS;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -10,20 +14,22 @@ import org.bukkit.entity.Player;
 
 public enum TFM_PlayerRank
 {
-    DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Dev]"),
+    DEVELOPER("a " + ChatColor.DARK_PURPLE + "TotalFreedom Developer", ChatColor.DARK_PURPLE + "[TF-Dev]"),
+    FOP_DEVELOPER("a " + ChatColor.DARK_PURPLE + "Old FreedomOp Developer", ChatColor.DARK_PURPLE + "[FOP-Dev]"),
+    RF_DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Dev]"),
     IMPOSTOR("an " + ChatColor.YELLOW + ChatColor.UNDERLINE + "Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
     NON_OP("a " + ChatColor.GREEN + "Non-OP", ChatColor.GREEN.toString()),
     OP("an " + ChatColor.RED + "OP", ChatColor.RED + "[OP]"),
     SUPER("a " + ChatColor.GOLD + "Super Admin", ChatColor.GOLD + "[SA]"),
     TELNET("a " + ChatColor.DARK_GREEN + "Super Telnet Admin", ChatColor.DARK_GREEN + "[STA]"),
     SENIOR("a " + ChatColor.LIGHT_PURPLE + "Senior Admin", ChatColor.LIGHT_PURPLE + "[SrA]"),
-    OWNER("the " + ChatColor.BLUE + "Owner", ChatColor.BLUE + "[Owner]"),
-    SYS("a " + ChatColor.DARK_RED + "System Admin", ChatColor.DARK_RED + "[SyS]"),
-    LEADDEV("The " + ChatColor.DARK_PURPLE + "Lead Developer", ChatColor.DARK_PURPLE + "[L.Dev]"),
-    EX("a " + ChatColor.YELLOW + "Executive", ChatColor.YELLOW + "[Exec]"),
-    COOWNER("a " + ChatColor.BLUE + "Co Owner", ChatColor.BLUE + "[C.Owner]"),
+    OWNER("the " + ChatColor.BLUE + "Owner" + ChatColor.AQUA + " of " + ChatColor.RED + "RubyFreedom", ChatColor.BLUE + "[Owner]"),
+    SYS_ADMIN("a " + ChatColor.DARK_RED + "System-Admin", ChatColor.DARK_RED + "[Sys-Admin]"),
+    LEAD_DEVELOPER("the " + ChatColor.DARK_PURPLE + "Lead Developer" + ChatColor.AQUA + " of " + ChatColor.RED + "RubyFreedom", ChatColor.DARK_PURPLE + "[L-Dev]"),
+    EXEC("an " + ChatColor.YELLOW + "Executive", ChatColor.YELLOW + "[Exec]"),
+    CO_OWNER("a " + ChatColor.BLUE + "Co-Owner" + ChatColor.AQUA + " of " + ChatColor.RED + "RubyFreedom", ChatColor.BLUE + "[Co-Owner]"),
     MYSTERI("a " + ChatColor.RED + "Potato Caek", ChatColor.GOLD + "[Executive]"),
-    CONSOLE("The " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_PURPLE + "[Console]");
+    CONSOLE("the " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_PURPLE + "[Console]");
     private final String loginMessage;
     private final String prefix;
 
@@ -72,34 +78,42 @@ public enum TFM_PlayerRank
             return IMPOSTOR;
         }
 
-        if (DEVELOPERS.contains(sender.getName()))
+        else if (DEVELOPERS.contains(sender.getName()))
         {
             return DEVELOPER;
         }
-        if (sender.getName().equals("cowgomooo12") || sender.getName().equals("olivercricket") || sender.getName().equals("eddieusselman") || sender.getName().equals("xYurippe") || sender.getName().equals("Stampy100"))
+        
+        else if (FOP_DEVELOPERS.contains(sender.getName()))
         {
-            return SYS;
+            return FOP_DEVELOPER;
         }
         
-        if (sender.getName().equals("Valencia_Orange"))
+        else if (RF_DEVELOPERS.contains(sender.getName()))
         {
-            return LEADDEV;
+            return RF_DEVELOPER;
         }
-       if (sender.getName().equals("MysteriAce"))
+        
+        else if (SYS.contains(sender.getName()))
         {
+            return SYS_ADMIN;
+        }
+        
+        else if (LEADDEV.contains(sender.getName()))
+        {
+            return LEAD_DEVELOPER;
+        }
+        
+        else if (sender.getName().equals("MysteriAce")) {
             return MYSTERI;
-        }        
-        if (sender.getName().equals("Alosion") || sender.getName().equals("MysteriAce") || sender.getName().equals("LydiaWolfle") || sender.getName().equals("triplewer") || sender.getName().equals("xBadDawgx") || sender.getName().equals("camille20009"))
-        {
-            return EX;
         }
-        if (TFM_Util.LEADDEV.contains(sender.getName()))
-        {
-            return LEADDEV;
+        
+        else if (EX.contains(sender.getName())) {
+            return EXEC;
         }
-        if (sender.getName().equals("RedEastWood") || sender.getName().equals("TaahThePenguin") || sender.getName().equals("_xXTheOpXx_"))
+        
+        else if (COOWNER.contains(sender.getName()))
         {
-            return COOWNER;
+            return CO_OWNER;
         }
 
         final TFM_Admin entry = TFM_AdminList.getEntryByIp(TFM_Util.getIp((Player) sender));

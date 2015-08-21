@@ -9,7 +9,7 @@ server:
   name: RubyFreedom
 
   # The address your server is located at. Please do not include the port.
-  address: rubyfreedom.fadehost.com
+  address: rfreedom.fadehost.com
 
   # Shown at the server list
   motd: RubyFreedom &8- Minecraft %mcversion%

@@ -20,7 +20,7 @@ public class Command_admininfo extends TFM_Command
         TFM_Util.playerMsg(sender_p, "Go to our forums at http://rubyfreedom.boards.net/", ChatColor.GREEN);
         TFM_Util.playerMsg(sender_p, "Create a thread in the Super Admin applications forum following the template:", ChatColor.GREEN);
         TFM_Util.playerMsg(sender_p, "http://rubyfreedom.boards.net/thread/4/super-admin-application-template", ChatColor.GREEN);
-        TFM_Util.playerMsg(sender_p, "wait for admin responses on your application and.", ChatColor.GREEN);
+        TFM_Util.playerMsg(sender_p, "wait for admin responses on your application and....", ChatColor.GREEN);
         TFM_Util.playerMsg(sender_p, "Don't ask for admins to look at the application, it will lower your chances of being accepted.", ChatColor.RED);
         return true;
     }
