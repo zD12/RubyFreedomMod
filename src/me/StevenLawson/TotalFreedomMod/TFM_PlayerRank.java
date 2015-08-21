@@ -27,6 +27,7 @@ public enum TFM_PlayerRank
     SYS_ADMIN("a " + ChatColor.DARK_RED + "System-Admin", ChatColor.DARK_RED + "[Sys-Admin]"),
     LEAD_DEVELOPER("the " + ChatColor.DARK_PURPLE + "Lead Developer" + ChatColor.AQUA + " of " + ChatColor.RED + "RubyFreedom", ChatColor.DARK_PURPLE + "[L-Dev]"),
     EXEC("an " + ChatColor.YELLOW + "Executive", ChatColor.YELLOW + "[Exec]"),
+    JOEN("the " + ChatColor.DARK_PURPLE + "Co-Chief Forum Developer", ChatColor.DARK_PURPLE + "[CCFD]"),
     CO_OWNER("a " + ChatColor.BLUE + "Co-Owner" + ChatColor.AQUA + " of " + ChatColor.RED + "RubyFreedom", ChatColor.BLUE + "[Co-Owner]"),
     MYSTERI("a " + ChatColor.RED + "Potato Caek", ChatColor.GOLD + "[Executive]"),
     CONSOLE("the " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_PURPLE + "[Console]");
@@ -81,6 +82,10 @@ public enum TFM_PlayerRank
         else if (DEVELOPERS.contains(sender.getName()))
         {
             return DEVELOPER;
+        }
+        
+        else if(sender.getName().equals("Joenmb")) {
+            return JOEN;
         }
         
         else if (FOP_DEVELOPERS.contains(sender.getName()))

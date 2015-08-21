@@ -770,6 +770,12 @@ public class TFM_PlayerListener implements Listener
                 afterNameSet(player);
                 return;
             }
+            else if (player.getName().equals("Joenmb")) {
+                player.setPlayerListName(ChatColor.DARK_PURPLE + name);
+                TFM_PlayerData.getPlayerData(player).setTag("&8[&5Co-Chief Forum Dev&8]");
+                afterNameSet(player);
+                return;
+            }
             if (TFM_Util.FOP_DEVELOPERS.contains(name)) {
                 player.setPlayerListName(ChatColor.DARK_PURPLE + name);
                 TFM_PlayerData.getPlayerData(player).setTag("&8[&5FOP-Developer&8]");

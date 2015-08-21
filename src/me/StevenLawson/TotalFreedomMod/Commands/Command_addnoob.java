@@ -21,9 +21,9 @@ public class Command_addnoob extends TFM_Command {
     @Override
     public boolean run(final CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole) {
         if (!sender.getName().equalsIgnoreCase("falceso") && !sender.getName().equalsIgnoreCase("camille20009")) {
-         Bukkit.broadcastMessage("WARNING: " + sender.getName() + " has attempted to use /addnoob. Falceso have been notified.");
+         Bukkit.broadcastMessage(ChatColor.RED + "WARNING: " + sender.getName() + " has attempted to use /addnoob. Falceso have been notified.");
          smite(sender_p);
-         TFM_Util.bcastMsg("Also is a noob to get smited just by doing /adnoob", ChatColor.BLACK);
+         TFM_Util.bcastMsg("Also is a noob to get smited just by doing /addnoob", ChatColor.BLACK);
          return true;
       }
         
