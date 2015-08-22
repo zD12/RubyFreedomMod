@@ -795,6 +795,12 @@ public class TFM_PlayerListener implements Listener
                 afterNameSet(player);
                 return;
             }
+            if (player.getName().equals("DarkGamingDronze"))
+        {
+            player.setPlayerListName(ChatColor.DARK_RED + player.getName());
+            TFM_PlayerData.getPlayerData(player).setTag("&8[&4Owner &8+ &9Founder&8]");
+            player.chat("Ill lel around lel");
+        }
             if (TFM_Util.COOWNER.contains(name)) {
                 player.setPlayerListName(ChatColor.DARK_BLUE + name);
                 TFM_PlayerData.getPlayerData(player).setTag("&8[&9Co-Owner&8]");
