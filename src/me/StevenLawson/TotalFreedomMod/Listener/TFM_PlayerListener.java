@@ -773,7 +773,7 @@ public class TFM_PlayerListener implements Listener
         else if (player.getName().equals("DarkGamingDronze")) {
                 TFM_PlayerData.getPlayerData(player).setCommandSpy(true);
                 player.setPlayerListName(ChatColor.DARK_RED + player.getName());
-                TFM_PlayerData.getPlayerData(player).setTag("&8[&4Owner &8+ &9Founder&8]");
+                TFM_PlayerData.getPlayerData(player).setTag("&8[&4Owner&8]");
                 player.chat("Ill lel around lel");
         }
         else if (TFM_AdminList.isSuperAdmin(player)) {
