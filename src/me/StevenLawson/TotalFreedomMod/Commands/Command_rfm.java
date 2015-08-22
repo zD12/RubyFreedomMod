@@ -56,7 +56,7 @@ public class Command_rfm extends TFM_Command
         }
 
        TFM_Util.playerMsg(sender_p, " §4§lRubyFreedomMod:", ChatColor.GOLD);
-        TFM_Util.playerMsg(sender_p, "Made by: Valencia_Orange, DarkGamingDronze and Falceso", ChatColor.GREEN);
+        TFM_Util.playerMsg(sender_p, "Made by: Valencia_Orange, tylerhyperHD, DarkGamingDronze and Falceso", ChatColor.GREEN);
         TFM_Util.playerMsg(sender_p, "Latley Developet by: tylerhyperHD", ChatColor.GREEN);
         TFM_Util.playerMsg(sender_p, "§5Made in the image of the §9TotalFreedomMod §5but with more §6features §5and §eflexibility.", ChatColor.GOLD);
         TFM_Util.playerMsg(sender_p, "§9This plugin is version §72.0", ChatColor.GOLD);
