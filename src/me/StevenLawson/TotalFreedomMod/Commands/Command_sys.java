@@ -15,7 +15,7 @@ import org.bukkit.entity.Player;
 @CommandPermissions(level = AdminLevel.OP, source = SourceType.BOTH)
 @CommandParameters(
         description = "A command for system admins only",
-        usage = "/<command> [add <player> | del <player> | teston | testoff]")
+        usage = "/<command> [add <player> | del <player> | suspend <player> | teston | testoff]")
 public class Command_sys extends TFM_Command
 {
     @Override
