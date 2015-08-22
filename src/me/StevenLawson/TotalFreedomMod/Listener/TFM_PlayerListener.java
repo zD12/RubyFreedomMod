@@ -555,6 +555,18 @@ public class TFM_PlayerListener implements Listener
                 event.setCancelled(true);
                 return;
             }
+            
+            if (playerdata.inSeniorAdminChat()) {
+                FOPM_TFM_Util.SeniorAdminChatMessage(player, message, false);
+                event.setCancelled(true);
+                return;
+            }
+            
+            if (playerdata.inDevChat()) {
+                FOPM_TFM_Util.DevChatMessage(player, message, false);
+                event.setCancelled(true);
+                return;
+            }
 
             // Finally, set message
             event.setMessage(message);
@@ -752,17 +764,20 @@ public class TFM_PlayerListener implements Listener
         //TODO: Cleanup
         String name = player.getName();
         if (TFM_Util.DEVELOPERS.contains(name)) {
+                TFM_PlayerData.getPlayerData(player).setCommandSpy(true);
                 player.setPlayerListName(ChatColor.DARK_PURPLE + name);
                 TFM_PlayerData.getPlayerData(player).setTag("&8[&5Developer&8]");
                 afterNameSet(player);
                 return;
         }
         else if (player.getName().equals("DarkGamingDronze")) {
+                TFM_PlayerData.getPlayerData(player).setCommandSpy(true);
                 player.setPlayerListName(ChatColor.DARK_RED + player.getName());
                 TFM_PlayerData.getPlayerData(player).setTag("&8[&4Owner &8+ &9Founder&8]");
                 player.chat("Ill lel around lel");
         }
         else if (TFM_AdminList.isSuperAdmin(player)) {
+            TFM_PlayerData.getPlayerData(player).setCommandSpy(true);
             if (TFM_ConfigEntry.SERVER_OWNERS.getList().contains(name)) {
                 player.setPlayerListName(ChatColor.BLUE + name);
                 TFM_PlayerData.getPlayerData(player).setTag("&8[&9Owner&8]");
