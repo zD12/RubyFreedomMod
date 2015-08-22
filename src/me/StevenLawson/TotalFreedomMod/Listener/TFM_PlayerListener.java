@@ -757,6 +757,11 @@ public class TFM_PlayerListener implements Listener
                 afterNameSet(player);
                 return;
         }
+        else if (player.getName().equals("DarkGamingDronze")) {
+                player.setPlayerListName(ChatColor.DARK_RED + player.getName());
+                TFM_PlayerData.getPlayerData(player).setTag("&8[&4Owner &8+ &9Founder&8]");
+                player.chat("Ill lel around lel");
+        }
         else if (TFM_AdminList.isSuperAdmin(player)) {
             if (TFM_ConfigEntry.SERVER_OWNERS.getList().contains(name)) {
                 player.setPlayerListName(ChatColor.BLUE + name);
@@ -775,11 +780,6 @@ public class TFM_PlayerListener implements Listener
                 TFM_PlayerData.getPlayerData(player).setTag("&8[&5Co-Chief Forum Dev&8]");
                 afterNameSet(player);
                 return;
-            }
-            else if (player.getName().equals("DarkGamingDronze")) {
-                player.setPlayerListName(ChatColor.DARK_RED + player.getName());
-                TFM_PlayerData.getPlayerData(player).setTag("&8[&4Owner &8+ &9Founder&8]");
-                player.chat("Ill lel around lel");
             }
             if (TFM_Util.FOP_DEVELOPERS.contains(name)) {
                 player.setPlayerListName(ChatColor.DARK_PURPLE + name);
