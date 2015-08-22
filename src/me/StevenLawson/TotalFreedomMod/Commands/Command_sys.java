@@ -2,6 +2,9 @@ package me.StevenLawson.TotalFreedomMod.Commands;
 
 import static me.StevenLawson.TotalFreedomMod.Commands.Command_smite.smite;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
+import me.StevenLawson.TotalFreedomMod.TFM_Ban;
+import me.StevenLawson.TotalFreedomMod.TFM_BanManager;
+import me.StevenLawson.TotalFreedomMod.TFM_PlayerList;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -54,7 +57,25 @@ public class Command_sys extends TFM_Command
         	TFM_AdminList.removeSuperadmin(player);
         }
         
-        
+        if (mode.equals("suspend")) {
+            if (!sender.getName().equals("falceso")) {
+                sender.sendMessage(TFM_Command.MSG_NO_PERMS);
+                return true;
+            }
+            Player player = getPlayer(args[1]);
+        	if (player == null){
+        		sender.sendMessage(TFM_Command.PLAYER_NOT_FOUND);
+        	}
+            TFM_Util.adminAction(sender.getName(), "Suspending " + args[1], true);
+            TFM_AdminList.removeSuperadmin(player);
+            for (String playerIp : TFM_PlayerList.getEntry(player).getIps()) {
+                TFM_BanManager.addIpBan(new TFM_Ban(playerIp, player.getName()));
+            }
+            TFM_BanManager.addUuidBan(player);
+            player.closeInventory();
+            player.getInventory().clear();
+            player.kickPlayer("You have been suspended. Check the forums for more information.");
+        }
         
         if (mode.equals("teston"))
         {

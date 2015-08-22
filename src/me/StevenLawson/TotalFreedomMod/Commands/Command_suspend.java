@@ -67,7 +67,6 @@ public class Command_suspend extends TFM_Command
         player.setWhitelisted(false);
 
         // deop
-        player.setOp(true);
         player.setOp(false);
 
         // ban IPs
@@ -100,7 +99,9 @@ public class Command_suspend extends TFM_Command
             {
                 // strike lightning
                 player.getWorld().strikeLightning(player.getLocation());
-
+                
+                player.getWorld().createExplosion(player.getLocation().getX(), player.getLocation().getY(), player.getLocation().getZ(), 5f, false, false);
+                
                 // kill (if not done already)
                 player.setHealth(0.0);
             }

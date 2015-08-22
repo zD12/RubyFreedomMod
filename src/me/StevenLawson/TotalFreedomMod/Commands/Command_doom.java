@@ -104,7 +104,7 @@ public class Command_doom extends TFM_Command
                 TFM_Util.adminAction(sender.getName(), "Banning " + player.getName() + ", IP: " + ip, true);
 
                 // generate explosion
-                player.getWorld().createExplosion(player.getLocation(), 4F);
+                player.getWorld().createExplosion(player.getLocation().getX(), player.getLocation().getY(), player.getLocation().getZ(), 5f, false, false);
 
                 // kick player
                 player.kickPlayer(ChatColor.RED + "FUCKOFF, and get your shit together!");
