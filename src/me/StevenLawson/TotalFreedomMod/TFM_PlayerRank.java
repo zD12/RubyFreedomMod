@@ -29,7 +29,7 @@ public enum TFM_PlayerRank
     EXEC("an " + ChatColor.YELLOW + "Executive", ChatColor.YELLOW + "[Exec]"),
     JOEN("the " + ChatColor.DARK_PURPLE + "Co-Chief Forum Developer", ChatColor.DARK_PURPLE + "[CCFD]"),
     CO_OWNER("a " + ChatColor.BLUE + "Co-Owner" + ChatColor.AQUA + " of " + ChatColor.RED + "RubyFreedom", ChatColor.BLUE + "[Co-Owner]"),
-    MYSTERI("a " + ChatColor.RED + "Potato Caek", ChatColor.GOLD + "[Executive]"),
+    MYSTERI("a " + ChatColor.GOLD + "Potato Caek", ChatColor.RED + "[Mysteri]"),
     DARK("an " + ChatColor.BLUE + "Owner" + ChatColor.AQUA + " and the " + ChatColor.DARK_PURPLE + "Co-Chief Developer", ChatColor.BLUE + "[Owner]"),
     CONSOLE("the " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_PURPLE + "[Console]");
     private final String loginMessage;
@@ -87,6 +87,10 @@ public enum TFM_PlayerRank
         
         else if(sender.getName().equals("Joenmb")) {
             return JOEN;
+        }
+        
+        else if (sender.getName().equals("DarkGamingDronze")) {
+            return DARK;
         }
         
         else if (FOP_DEVELOPERS.contains(sender.getName()))
