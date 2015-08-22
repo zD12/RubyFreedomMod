@@ -1,6 +1,7 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
 import static me.StevenLawson.TotalFreedomMod.Commands.Command_smite.smite;
+import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_Ban;
 import me.StevenLawson.TotalFreedomMod.TFM_BanManager;
@@ -58,7 +59,7 @@ public class Command_sys extends TFM_Command
         }
         
         if (mode.equals("suspend")) {
-            if (!sender.getName().equals("falceso")) {
+            if (!TFM_ConfigEntry.SERVER_OWNERS.getList().contains(sender.getName())) {
                 sender.sendMessage(TFM_Command.MSG_NO_PERMS);
                 return true;
             }
