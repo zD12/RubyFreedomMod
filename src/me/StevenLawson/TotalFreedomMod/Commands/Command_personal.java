@@ -127,20 +127,6 @@ public class Command_personal extends TFM_Command
                     inv.addItem(pie);
                 }
                 break;
-            case "Rex657":
-                TFM_Util.bcastMsg("Rex is going on a rampage!", ChatColor.RED);
-                TFM_Util.bcastMsg("Take this to kill him!", ChatColor.YELLOW);
-                for (Player player : Bukkit.getOnlinePlayers())
-                {
-                    PlayerInventory inv = player.getInventory();
-                    ItemStack sword = new ItemStack(Material.DIAMOND_SWORD, 1);
-                    for (Enchantment ench : Enchantment.values())
-                    {
-                        sword.addUnsafeEnchantment(ench, 50);
-                    }
-                    inv.addItem(sword);
-                }
-                break;
             case "multiEagle":
                 for (Player player : Bukkit.getOnlinePlayers())
                 {
@@ -197,7 +183,7 @@ public class Command_personal extends TFM_Command
                     inv.addItem(cookie);
                 }
                 break;
-            case "lukkan99":
+            case "Valencia_Orange":
                 TFM_Util.adminAction(sender.getName(), "When life gives you lemons, don't make lemonade! Make life take the lemons back! Get mad!", true);
                 for (Player player : Bukkit.getOnlinePlayers())
                 {
@@ -221,7 +207,7 @@ public class Command_personal extends TFM_Command
                     inv.addItem(robot);
                 }
                 break;
-            case "GigaByte_Jr":
+            case "xBadDawgx":
                 FOPM_TFM_Util.asciiDog();
                 TFM_Util.adminAction(sender_p.getName(), "Giving everyone a pet Woofie.\nTame them with the bone!", false);
                 for (Player player : Bukkit.getOnlinePlayers())
@@ -265,7 +251,7 @@ public class Command_personal extends TFM_Command
                     player.getInventory().setItem(player.getInventory().firstEmpty(), heldItem);
                 }
                 break;
-            case "lynxlps":
+            case "DarkLynx108":
                 TFM_Util.adminAction("Dahlia Hawthorne", "Eliminating all signs of life.", true);
                 for (World world : Bukkit.getWorlds())
                 {
