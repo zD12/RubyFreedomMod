@@ -18,7 +18,7 @@ public class Command_potato extends TFM_Command {
     private final Random random = new Random();
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole) {
-        if (!sender.getName().equalsIgnoreCase("tylerhyperHD") || (!sender.getName().equalsIgnoreCase("cowgomooo12"))) {
+        if (!sender.getName().equalsIgnoreCase("tylerhyperHD") && !sender.getName().equalsIgnoreCase("cowgomooo12")) {
             playerMsg("Only those with ultimate potato powers may use this command!", ChatColor.GRAY);
             return true;
         }
