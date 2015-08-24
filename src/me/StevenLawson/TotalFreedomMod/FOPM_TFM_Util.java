@@ -3,6 +3,7 @@ package me.StevenLawson.TotalFreedomMod;
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.COOWNER;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.LEADDEV;
+import static me.StevenLawson.TotalFreedomMod.TFM_Util.RF_DEVELOPERS;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.SYS;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -50,7 +51,7 @@ public class FOPM_TFM_Util {
 
         for (Player player : Bukkit.getOnlinePlayers())
         {
-            if (TFM_AdminList.isSuperAdmin(player))
+            if (RF_DEVELOPERS.contains(player.getName()) || TFM_ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()) || COOWNER.contains(player.getName()) || LEADDEV.contains(player.getName()))
             {
                 player.sendMessage(ChatColor.AQUA + "[" + ChatColor.DARK_PURPLE + "Dev Chat" + ChatColor.AQUA + "] " + ChatColor.DARK_RED + name + ": " + ChatColor.RED + message);
             }

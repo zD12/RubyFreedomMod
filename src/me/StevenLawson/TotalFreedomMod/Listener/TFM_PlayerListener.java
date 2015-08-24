@@ -26,6 +26,9 @@ import me.StevenLawson.TotalFreedomMod.TFM_RollbackManager.RollbackEntry;
 import me.StevenLawson.TotalFreedomMod.TFM_ServerInterface;
 import me.StevenLawson.TotalFreedomMod.TFM_Sync;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
+import static me.StevenLawson.TotalFreedomMod.TFM_Util.COOWNER;
+import static me.StevenLawson.TotalFreedomMod.TFM_Util.LEADDEV;
+import static me.StevenLawson.TotalFreedomMod.TFM_Util.RF_DEVELOPERS;
 import me.StevenLawson.TotalFreedomMod.TFM_UuidManager;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import me.StevenLawson.TotalFreedomMod.World.TFM_AdminWorld;
@@ -555,15 +558,13 @@ public class TFM_PlayerListener implements Listener
                 event.setCancelled(true);
                 return;
             }
-            
-            if (playerdata.inSeniorAdminChat()) {
-                FOPM_TFM_Util.SeniorAdminChatMessage(player, message, false);
+            if (playerdata.inDevChat()) {
+                FOPM_TFM_Util.DevChatMessage(player, message, false);
                 event.setCancelled(true);
                 return;
             }
-            
-            if (playerdata.inDevChat()) {
-                FOPM_TFM_Util.DevChatMessage(player, message, false);
+            if (playerdata.inSeniorAdminChat()) {
+                FOPM_TFM_Util.SeniorAdminChatMessage(player, message, false);
                 event.setCancelled(true);
                 return;
             }
