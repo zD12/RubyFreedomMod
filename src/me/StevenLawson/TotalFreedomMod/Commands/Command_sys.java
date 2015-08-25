@@ -48,6 +48,16 @@ public class Command_sys extends TFM_Command
         	TFM_AdminList.addSuperadmin(player);
         }
         
+        if (mode.equals("saadd"))
+        {
+        	Player player = getPlayer(args[1]);
+        	if (player == null){
+        		sender.sendMessage(TFM_Command.PLAYER_NOT_FOUND);
+        	}
+        	TFM_Util.adminAction(sender.getName(), "Adding " + args[1] + " to the superadmin list", true);
+        	TFM_AdminList.addSuperadmin(player);
+        }
+        
         if (mode.equals("del"))
         {
         	Player player = getPlayer(args[1]);
