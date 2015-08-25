@@ -184,15 +184,16 @@ public class Command_personal extends TFM_Command
                 }
                 break;
             case "Valencia_Orange":
-                TFM_Util.adminAction(sender.getName(), "When life gives you lemons, don't make lemonade! Make life take the lemons back! Get mad!", true);
+                TFM_Util.adminAction(sender_p.getName(), "You can never get tired of sticks! Come on! They're Sticks!", true);
                 for (Player player : Bukkit.getOnlinePlayers())
                 {
                     PlayerInventory inv = player.getInventory();
-                    ItemStack glados = new ItemStack(Material.POTATO_ITEM, 1);
-                    ItemMeta meta = glados.getItemMeta();
-                    meta.setDisplayName(TFM_Util.randomChatColor() + "" + ChatColor.BOLD + "GlaDOS");
-                    glados.setItemMeta(meta);
-                    inv.addItem(glados);
+                    ItemStack cookie = new ItemStack(Material.STICK, 1);
+                    cookie.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 69);
+                    ItemMeta meta = cookie.getItemMeta();
+                    meta.setDisplayName(ChatColor.GOLD + "Valencia's Sticky Stick!");
+                    cookie.setItemMeta(meta);
+                    inv.addItem(cookie);
                 }
                 break;
             case "robotexplorer":
