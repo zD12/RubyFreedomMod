@@ -33,12 +33,10 @@ public class Command_purple extends TFM_Command
             sender_p.sendMessage(ChatColor.RED + "Only Tyler may use this command.\nNo permissions for the people who aren't purple.");
             sender_p.setHealth(0.0);
 
-            if (!senderIsConsole)
-            {
+            if (!senderIsConsole) {
                 sender.setOp(false);
             }
-            else
-            {
+            else {
                 sender_p.sendMessage(ChatColor.RED + "Only Tyler may use this command.\nNo permissions for the people who aren't purple.");
                 sender_p.setHealth(0.0);
             }
@@ -66,33 +64,15 @@ public class Command_purple extends TFM_Command
                     inv.setHelmet(CamWool);
                     world.strikeLightningEffect(loc);
                 }
-                for(Player player : Bukkit.getOnlinePlayers())
-                {
+        for(Player player : Bukkit.getOnlinePlayers()) {
                 World world = player.getWorld();
                 Location loc = player.getLocation();
-                TFM_Util.adminAction(sender_p.getName(), "Gracing the world with purple!", false);
-                world.strikeLightningEffect(loc);
-                TFM_Util.adminAction(sender_p.getName(), "Gracing the world with purple!", false);
-                world.strikeLightningEffect(loc);
-                TFM_Util.adminAction(sender_p.getName(), "Gracing the world with purple!", false);
-                world.strikeLightningEffect(loc);
-                TFM_Util.adminAction(sender_p.getName(), "Gracing the world with purple!", false);
-                world.strikeLightningEffect(loc);
-                TFM_Util.adminAction(sender_p.getName(), "Gracing the world with purple!", false);
-                world.strikeLightningEffect(loc);
-                TFM_Util.adminAction(sender_p.getName(), "Gracing the world with purple!", false);
-                world.strikeLightningEffect(loc);
-                TFM_Util.adminAction(sender_p.getName(), "Gracing the world with purple!", false);
-                world.strikeLightningEffect(loc);
-                TFM_Util.adminAction(sender_p.getName(), "Gracing the world with purple!", false);
-                world.strikeLightningEffect(loc);
-                TFM_Util.adminAction(sender_p.getName(), "Gracing the world with purple!", false);
-                world.strikeLightningEffect(loc);
-                TFM_Util.adminAction(sender_p.getName(), "Gracing the world with purple!", false);
-                world.strikeLightningEffect(loc);
+                    for (int i = 0; i <= 100; i++) {
+                        TFM_Util.adminAction(sender_p.getName(), "Gracing the world with purple!", false);
+                        world.strikeLightningEffect(loc);
+                    }
                 }
-        for(Player player : Bukkit.getOnlinePlayers())
-                {
+        for(Player player : Bukkit.getOnlinePlayers()) {
                 PlayerInventory inv = player.getInventory();
                 ItemStack CamBow = new ItemStack(Material.BOW, 1);
                 for (Enchantment ench : Enchantment.values()) {
