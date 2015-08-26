@@ -84,43 +84,47 @@ public enum TFM_PlayerRank
         {
             return DEVELOPER;
         }
-        
-        else if(sender.getName().equals("Joenmb")) {
+
+        else if (sender.getName().equals("Joenmb"))
+        {
             return JOEN;
         }
-        
-        else if (sender.getName().equals("DarkGamingDronze")) {
+
+        else if (sender.getName().equals("DarkGamingDronze"))
+        {
             return DARK;
         }
-        
+
         else if (FOP_DEVELOPERS.contains(sender.getName()))
         {
             return FOP_DEVELOPER;
         }
-        
+
         else if (RF_DEVELOPERS.contains(sender.getName()))
         {
             return RF_DEVELOPER;
         }
-        
+
         else if (SYS.contains(sender.getName()))
         {
             return SYS_ADMIN;
         }
-        
+
         else if (LEADDEV.contains(sender.getName()))
         {
             return LEAD_DEVELOPER;
         }
-        
-        else if (sender.getName().equals("MysteriAce")) {
+
+        else if (sender.getName().equals("MysteriAce"))
+        {
             return MYSTERI;
         }
-        
-        else if (EX.contains(sender.getName())) {
+
+        else if (EX.contains(sender.getName()))
+        {
             return EXEC;
         }
-        
+
         else if (COOWNER.contains(sender.getName()))
         {
             return CO_OWNER;

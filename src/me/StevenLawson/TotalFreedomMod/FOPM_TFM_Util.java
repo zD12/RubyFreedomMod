@@ -12,38 +12,46 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
-public class FOPM_TFM_Util {
+public class FOPM_TFM_Util
+{
     /*
-    *
-    *  Uses extremely old FOPM changes to the TFM
-    *
-    */
-    
-    public static boolean inGod(Player player) {
+     *
+     *  Uses extremely old FOPM changes to the TFM
+     *
+     */
+
+    public static boolean inGod(Player player)
+    {
         return TFM_PlayerData.getPlayerData(player).inGod();
     }
-    
-    public static void setGod(Player player, boolean enabled) {
+
+    public static void setGod(Player player, boolean enabled)
+    {
         TFM_PlayerData.getPlayerData(player).setGod(enabled);
     }
-    
-    public static boolean isHighRank(Player player) {
+
+    public static boolean isHighRank(Player player)
+    {
         String name = player.getName();
-        if (SYS.contains(name) || COOWNER.contains(name) || LEADDEV.contains(name) || name.equals("tylerhyperHD") || TFM_ConfigEntry.SERVER_OWNERS.getList().contains(name)) {
+        if (SYS.contains(name) || COOWNER.contains(name) || LEADDEV.contains(name) || name.equals("tylerhyperHD") || TFM_ConfigEntry.SERVER_OWNERS.getList().contains(name))
+        {
             return true;
         }
-        else {
+        else
+        {
             return false;
         }
     }
 
-    public static boolean isHighRank(CommandSender sender) {
-        if (!(sender instanceof Player)) {
+    public static boolean isHighRank(CommandSender sender)
+    {
+        if (!(sender instanceof Player))
+        {
             return true;
         }
         return isHighRank((Player) sender);
     }
-    
+
     public static void DevChatMessage(CommandSender sender, String message, boolean senderIsConsole)
     {
         String name = sender.getName() + " " + TFM_PlayerRank.fromSender(sender).getPrefix() + ChatColor.WHITE;
@@ -57,7 +65,7 @@ public class FOPM_TFM_Util {
             }
         }
     }
-        
+
     public static void SeniorAdminChatMessage(CommandSender sender, String message, boolean senderIsConsole)
     {
         String name = sender.getName() + " " + TFM_PlayerRank.fromSender(sender).getPrefix() + ChatColor.WHITE;
@@ -71,6 +79,7 @@ public class FOPM_TFM_Util {
             }
         }
     }
+
     public static void asciiDog()
     {
         //This was VERY annoying to make!
@@ -130,7 +139,8 @@ public class FOPM_TFM_Util {
 
     public static void asciiUnicorn()
     {
-        for (Player player : Bukkit.getOnlinePlayers()) {
+        for (Player player : Bukkit.getOnlinePlayers())
+        {
             player.playSound(player.getLocation(), Sound.FIREWORK_TWINKLE, 1.0F, 1.0F);
         }
         TFM_Util.bcastMsg(TFM_Util.randomChatColor() + "                                                         ,/");
@@ -171,7 +181,7 @@ public class FOPM_TFM_Util {
         TFM_Util.bcastMsg(TFM_Util.randomChatColor() + "                         ( __;        ( _;                ('-_';");
         TFM_Util.bcastMsg(TFM_Util.randomChatColor() + "                         |___\\       \\___:              \\___:");
     }
-    
+
     public static void spawnMob(Player player, EntityType entity, int amount)
     {
         int i = 0;
@@ -182,7 +192,7 @@ public class FOPM_TFM_Util {
         }
         while (i <= amount);
     }
-    
+
     public static String getPlayerFromIp(String ip)
     {
         for (TFM_Player player : TFM_PlayerList.getAllPlayers())

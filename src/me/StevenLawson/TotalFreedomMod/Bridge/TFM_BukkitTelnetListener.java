@@ -12,6 +12,7 @@ import me.StevenLawson.TotalFreedomMod.TFM_PlayerData;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import static me.StevenLawson.TotalFreedomMod.TotalFreedomMod.server;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -46,8 +47,16 @@ public class TFM_BukkitTelnetListener implements Listener
     @EventHandler(priority = EventPriority.NORMAL)
     public void onTelnetCommand(TelnetCommandEvent event)
     {
-        if (TFM_CommandBlocker.isCommandBlocked(event.getCommand(), event.getSender())) {
+        if (TFM_CommandBlocker.isCommandBlocked(event.getCommand(), event.getSender()))
+        {
             event.setCancelled(true);
+        }
+        for (Player player : Bukkit.getOnlinePlayers())
+        {
+            if (TFM_AdminList.isSeniorAdmin(player))
+            {
+                TFM_Util.playerMsg(player, ChatColor.GRAY + "" + ChatColor.ITALIC + event.getSender().getName() + ": /" + event.getCommand());
+            }
         }
     }
 
