@@ -62,7 +62,8 @@ import org.bukkit.entity.Projectile;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.FileUtil;
 
-public class TFM_Util {
+public class TFM_Util
+{
     private static final Map<String, Integer> ejectTracker = new HashMap<String, Integer>();
     public static final Map<String, EntityType> mobtypes = new HashMap<String, EntityType>();
     // See https://github.com/TotalFreedom/License - None of the listed names may be removed.
@@ -89,6 +90,7 @@ public class TFM_Util {
             ChatColor.RED,
             ChatColor.LIGHT_PURPLE,
             ChatColor.YELLOW);
+    public static ArrayList<String> imposters = new ArrayList<>();
 
     static
     {

@@ -77,9 +77,12 @@ public class TFM_ServerInterface
                 continue;
             }
 
-            if (!isAdmin) {
+            if (!isAdmin)
+            {
                 event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "Your username is already logged into this server.");
-            } else {
+            }
+            else
+            {
                 event.allow();
                 TFM_Sync.playerKick(onlinePlayer, "An admin just logged in with the username you are using.");
             }
@@ -178,7 +181,7 @@ public class TFM_ServerInterface
             event.disallow(Result.KICK_OTHER, "RubyFreedom is temporarily open to admins only.");
             return;
         }
-        
+
         // Training mode
         if (TFM_ConfigEntry.TRAINING_SESSION.getBoolean())
         {

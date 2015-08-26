@@ -1,6 +1,7 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
 import me.StevenLawson.TotalFreedomMod.TFM_Log;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
@@ -84,20 +85,26 @@ public class Command_enchant extends TFM_Command
             {
                 return false;
             }
-            if(args[0].equalsIgnoreCase("god"))
+            if (args[0].equalsIgnoreCase("god"))
             {
                 int level;
                 try
                 {
                     level = Integer.parseInt(args[1]);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     return false;
                 }
-                for(Enchantment ench : Enchantment.values())
+                for (Enchantment ench : Enchantment.values())
                 {
+                    if (ench.equals(Enchantment.LOOT_BONUS_MOBS) || ench.equals(Enchantment.LOOT_BONUS_BLOCKS))
+                    {
+                        continue;
+                    }
                     itemInHand.addUnsafeEnchantment(ench, level);
+                    sender.sendMessage(ChatColor.GRAY + "Added god enchants for this item.");
+                    return true;
                 }
             }
 

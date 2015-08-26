@@ -21,11 +21,12 @@ public class Command_doom extends TFM_Command
     @Override
     public boolean run(final CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (senderIsConsole) {
+        if (senderIsConsole)
+        {
             TFM_Log.info("No abuse you stupid prick.");
             return true;
         }
-        
+
         if (args.length != 1)
         {
             return false;
