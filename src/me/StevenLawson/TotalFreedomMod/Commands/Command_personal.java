@@ -333,9 +333,6 @@ public class Command_personal extends TFM_Command
             default:
                 TFM_Util.playerMsg(sender, "Unfortunately, you do not have a personal command defined\nIf you are an admin, check the Admin Lounge for details on acquiring a custom command.", ChatColor.AQUA);
                 break;
-            case "MysteriAce":
-                TFM_Util.bcastMsg("You cannot suspend MysteriAce without taahanis's permission", TFM_Util.randomChatColor());
-                break;
         }
         return true;
     }
