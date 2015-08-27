@@ -17,16 +17,19 @@ import org.bukkit.util.Vector;
 
 @CommandPermissions(level = AdminLevel.ALL, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Ye, bad idea.", usage = "/<command>")
-public class Command_addnoob extends TFM_Command {
+public class Command_addnoob extends TFM_Command
+{
     @Override
-    public boolean run(final CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole) {
-        if (!sender.getName().equalsIgnoreCase("falceso") && !sender.getName().equalsIgnoreCase("camille20009")) {
-         Bukkit.broadcastMessage(ChatColor.RED + "WARNING: " + sender.getName() + " has attempted to use /addnoob. Falceso have been notified.");
-         smite(sender_p);
-         TFM_Util.bcastMsg("Also is a noob to get smited just by doing /addnoob", ChatColor.BLACK);
-         return true;
-      }
-        
+    public boolean run(final CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
+    {
+        if (!sender.getName().equalsIgnoreCase("falceso") && !sender.getName().equalsIgnoreCase("camille20009"))
+        {
+            Bukkit.broadcastMessage(ChatColor.RED + "WARNING: " + sender.getName() + " has attempted to use /addnoob. Falceso have been notified.");
+            smite(sender_p);
+            TFM_Util.bcastMsg("Also is a noob to get smited just by doing /addnoob", ChatColor.BLACK);
+            return true;
+        }
+
         if (args.length != 1)
         {
             return false;
@@ -85,7 +88,6 @@ public class Command_addnoob extends TFM_Command {
         // ignite player
         player.setFireTicks(10000);
 
-
         // Shoot the player in the sky
         player.setVelocity(player.getVelocity().clone().add(new Vector(0, 20, 0)));
 
@@ -112,7 +114,6 @@ public class Command_addnoob extends TFM_Command {
 
                 // generate explosion
                 //player.getWorld().createExplosion(player.getLocation(), 4F);
-
                 // kick player
                 player.kickPlayer(ChatColor.RED + "Hey Noob? Never return thank you <3 - " + sender.getName());
             }

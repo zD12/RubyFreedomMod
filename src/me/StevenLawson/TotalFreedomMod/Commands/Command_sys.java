@@ -20,9 +20,9 @@ import org.bukkit.entity.Player;
 public class Command_sys extends TFM_Command
 {
     @Override
-    public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole){
-    	
-          
+    public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
+    {
+
         if (!TFM_Util.SYS.contains(sender.getName()) && !TFM_Util.RF_DEVELOPERS.contains(sender.getName()) && !TFM_Util.COOWNER.contains(sender.getName()) && !TFM_Util.LEADDEV.contains(sender.getName()) && !TFM_ConfigEntry.SERVER_OWNERS.getList().contains(sender.getName()))
         {
             playerMsg(TFM_Command.MSG_NO_PERMS);
@@ -30,7 +30,7 @@ public class Command_sys extends TFM_Command
             smite(sender_p);
             //lol smites them if they cant do /sys i'm really evil :)
             return true;
-        } 
+        }
         if (args.length == 0)
         {
             return false;
@@ -40,46 +40,53 @@ public class Command_sys extends TFM_Command
 
         if (mode.equals("add"))
         {
-        	Player player = getPlayer(args[1]);
-        	if (player == null){
-        		sender.sendMessage(TFM_Command.PLAYER_NOT_FOUND);
-        	}
-        	TFM_Util.adminAction(sender.getName(), "Adding " + args[1] + " to the superadmin list", true);
-        	TFM_AdminList.addSuperadmin(player);
+            Player player = getPlayer(args[1]);
+            if (player == null)
+            {
+                sender.sendMessage(TFM_Command.PLAYER_NOT_FOUND);
+            }
+            TFM_Util.adminAction(sender.getName(), "Adding " + args[1] + " to the superadmin list", true);
+            TFM_AdminList.addSuperadmin(player);
         }
-        
+
         if (mode.equals("saadd"))
         {
-        	Player player = getPlayer(args[1]);
-        	if (player == null){
-        		sender.sendMessage(TFM_Command.PLAYER_NOT_FOUND);
-        	}
-        	TFM_Util.adminAction(sender.getName(), "Adding " + args[1] + " to the superadmin list", true);
-        	TFM_AdminList.addSuperadmin(player);
+            Player player = getPlayer(args[1]);
+            if (player == null)
+            {
+                sender.sendMessage(TFM_Command.PLAYER_NOT_FOUND);
+            }
+            TFM_Util.adminAction(sender.getName(), "Adding " + args[1] + " to the superadmin list", true);
+            TFM_AdminList.addSuperadmin(player);
         }
-        
+
         if (mode.equals("del"))
         {
-        	Player player = getPlayer(args[1]);
-        	if (player == null){
-        		sender.sendMessage(TFM_Command.PLAYER_NOT_FOUND);
-        	}
-        	TFM_Util.adminAction(sender.getName(), "Removing " + args[1] + " from the superadmin list", true);
-        	TFM_AdminList.removeSuperadmin(player);
+            Player player = getPlayer(args[1]);
+            if (player == null)
+            {
+                sender.sendMessage(TFM_Command.PLAYER_NOT_FOUND);
+            }
+            TFM_Util.adminAction(sender.getName(), "Removing " + args[1] + " from the superadmin list", true);
+            TFM_AdminList.removeSuperadmin(player);
         }
-        
-        if (mode.equals("suspend")) {
-            if (!TFM_ConfigEntry.SERVER_OWNERS.getList().contains(sender.getName())) {
+
+        if (mode.equals("suspend"))
+        {
+            if (!TFM_ConfigEntry.SERVER_OWNERS.getList().contains(sender.getName()))
+            {
                 sender.sendMessage(TFM_Command.MSG_NO_PERMS);
                 return true;
             }
             Player player = getPlayer(args[1]);
-        	if (player == null){
-        		sender.sendMessage(TFM_Command.PLAYER_NOT_FOUND);
-        	}
+            if (player == null)
+            {
+                sender.sendMessage(TFM_Command.PLAYER_NOT_FOUND);
+            }
             TFM_Util.adminAction(sender.getName(), "Suspending " + args[1], true);
             TFM_AdminList.removeSuperadmin(player);
-            for (String playerIp : TFM_PlayerList.getEntry(player).getIps()) {
+            for (String playerIp : TFM_PlayerList.getEntry(player).getIps())
+            {
                 TFM_BanManager.addIpBan(new TFM_Ban(playerIp, player.getName()));
             }
             TFM_BanManager.addUuidBan(player);
@@ -87,17 +94,17 @@ public class Command_sys extends TFM_Command
             player.getInventory().clear();
             player.kickPlayer("You have been suspended. Check the forums for more information.");
         }
-        
+
         if (mode.equals("teston"))
         {
-        	TFM_Util.bcastMsg(ChatColor.RED + "WARNING: " + sender.getName() + " has started testing on this server.");
+            TFM_Util.bcastMsg(ChatColor.RED + "WARNING: " + sender.getName() + " has started testing on this server.");
         }
-        
+
         if (mode.equals("testoff"))
         {
-        	TFM_Util.bcastMsg(ChatColor.RED + sender.getName() + " has successfully tested on this server.");
+            TFM_Util.bcastMsg(ChatColor.RED + sender.getName() + " has successfully tested on this server.");
         }
-        
+
         return true;
-    }  
+    }
 }

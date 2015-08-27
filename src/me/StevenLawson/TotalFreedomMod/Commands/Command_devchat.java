@@ -25,16 +25,18 @@ public class Command_devchat extends TFM_Command
                 playerMsg("Only in-game players can toggle DevChat.");
                 return true;
             }
-            
+
             TFM_PlayerData userinfo = TFM_PlayerData.getPlayerData(sender_p);
-            
-            if (userinfo.inAdminChat()) {
+
+            if (userinfo.inAdminChat())
+            {
                 userinfo.setAdminChat(!userinfo.inAdminChat());
             }
-            
-            if (userinfo.inSeniorAdminChat()) {
+
+            if (userinfo.inSeniorAdminChat())
+            {
                 userinfo.setSeniorAdminChat(!userinfo.inSeniorAdminChat());
-            }            
+            }
 
             userinfo.setDevChat(!userinfo.inDevChat());
             playerMsg("Toggled Dev Chat " + (userinfo.inDevChat() ? "on" : "off") + ".");

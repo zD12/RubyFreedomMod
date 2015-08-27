@@ -25,12 +25,11 @@ public class Command_suspend extends TFM_Command
     {
         if (!TFM_ConfigEntry.SERVER_OWNERS.getList().contains(sender.getName()))
         {
-          Bukkit.broadcastMessage(ChatColor.RED + "WARNING: " + sender.getName() + " has attempted to use /suspend. Falceso have been notified.");
-          smite(sender_p);
-         
-         return true;
-      }
-        
+            Bukkit.broadcastMessage(ChatColor.RED + "WARNING: " + sender.getName() + " has attempted to use /suspend. Falceso have been notified.");
+            smite(sender_p);
+
+            return true;
+        }
 
         if (args.length != 1)
         {
@@ -89,7 +88,6 @@ public class Command_suspend extends TFM_Command
         // ignite player
         player.setFireTicks(10000);
 
-
         // Shoot the player in the sky
         player.setVelocity(player.getVelocity().clone().add(new Vector(0, 20, 0)));
 
@@ -100,9 +98,9 @@ public class Command_suspend extends TFM_Command
             {
                 // strike lightning
                 player.getWorld().strikeLightning(player.getLocation());
-                
+
                 player.getWorld().createExplosion(player.getLocation().getX(), player.getLocation().getY(), player.getLocation().getZ(), 5f, false, false);
-                
+
                 // kill (if not done already)
                 player.setHealth(0.0);
             }
@@ -118,7 +116,6 @@ public class Command_suspend extends TFM_Command
 
                 // generate explosion
                 //player.getWorld().createExplosion(player.getLocation(), 4F);
-
                 // kick player
                 player.kickPlayer(ChatColor.RED + "Hey shitbag? Never return thank you <3 - falceso!");
             }

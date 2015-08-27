@@ -151,21 +151,25 @@ public class TFM_PlayerData
     {
         return orbitStrength;
     }
-    
+
     // Start FOPM Changes //
-    public boolean inGod() {
+    public boolean inGod()
+    {
         return this.inGod;
     }
 
-    public void setGod(boolean state) {
+    public void setGod(boolean state)
+    {
         this.inGod = state;
     }
-    
-    public boolean isDoubleJumper() {
+
+    public boolean isDoubleJumper()
+    {
         return this.isDoubleJumper;
     }
 
-    public void setDoubleJumper(boolean state) {
+    public void setDoubleJumper(boolean state)
+    {
         this.isDoubleJumper = state;
     }
     // End FOPM Changes //
@@ -496,7 +500,7 @@ public class TFM_PlayerData
     {
         return this.inSeniorAdminchat;
     }
-    
+
     public void setDevChat(boolean inDevchat)
     {
         this.inDevchat = inDevchat;
@@ -506,7 +510,7 @@ public class TFM_PlayerData
     {
         return this.inDevchat;
     }
-    
+
     public boolean allCommandsBlocked()
     {
         return this.allCommandsBlocked;

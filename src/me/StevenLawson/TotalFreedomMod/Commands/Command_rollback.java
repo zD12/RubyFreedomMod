@@ -23,7 +23,8 @@ public class Command_rollback extends TFM_Command
         {
             String name = args[0];
             Player player = Bukkit.getPlayer(name);
-            if(player != null) {
+            if (player != null)
+            {
                 name = player.getName();
             }
             TFM_Util.adminAction(sender.getName(), "Rolling back " + name + ".", true);
@@ -38,7 +39,8 @@ public class Command_rollback extends TFM_Command
             {
                 String name = args[0];
                 Player player = Bukkit.getPlayer(name);
-                if(player != null) {
+                if (player != null)
+                {
                     name = player.getName();
                 }
                 TFM_Util.adminAction(sender.getName(), "Reverting rollback of " + name + ".", true);

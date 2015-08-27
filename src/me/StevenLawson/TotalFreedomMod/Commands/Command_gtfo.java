@@ -57,7 +57,6 @@ public class Command_gtfo extends TFM_Command
          // rollback
          TFM_RollbackManager.rollback(player.getName());
          */
-
         // deop
         player.setOp(false);
 

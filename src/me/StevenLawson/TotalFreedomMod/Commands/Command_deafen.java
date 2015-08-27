@@ -12,14 +12,16 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 @CommandPermissions(level = AdminLevel.SUPER, source = SourceType.ONLY_IN_GAME, blockHostConsole = true)
 @CommandParameters(description = "Make some noise.", usage = "/<command>")
-public class Command_deafen extends TFM_Command {
+public class Command_deafen extends TFM_Command
+{
     private static final Random random = new Random();
     public static final double STEPS = 10.0;
 
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (!TFM_ConfigEntry.SERVER_OWNERS.getList().contains(sender.getName())) {
+        if (!TFM_ConfigEntry.SERVER_OWNERS.getList().contains(sender.getName()))
+        {
             sender.sendMessage(ChatColor.RED + "Only owners may execute this command.");
             return true;
         }
