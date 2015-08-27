@@ -53,12 +53,14 @@ import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
+import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
@@ -684,6 +686,12 @@ public class TFM_PlayerListener implements Listener
         String command = event.getMessage();
         final Player player = event.getPlayer();
 
+        if ((command.contains("&k") || command.contains("&m") || command.contains("&o") || command.contains("&n")) && !TFM_AdminList.isSuperAdmin(player))
+        {
+            event.setCancelled(true);
+            TFM_Util.playerMsg(player, ChatColor.RED + "You are not permitted to use &o, &k, &n or &m!");
+        }
+
         final TFM_PlayerData playerdata = TFM_PlayerData.getPlayerData(player);
         playerdata.setLastCommand(command);
 
@@ -738,6 +746,12 @@ public class TFM_PlayerListener implements Listener
         {
             // CommandBlocker handles messages and broadcasts
             event.setCancelled(true);
+        }
+
+        if (command.contains("175:") || command.contains("double_plant:"))
+        {
+            event.setCancelled(true);
+            TFM_Util.autoEject(player, ChatColor.DARK_RED + "Do not attempt to use any command involving the crash item!");
         }
 
         ChatColor colour = ChatColor.GRAY;
@@ -889,7 +903,7 @@ public class TFM_PlayerListener implements Listener
 
         //TODO: Cleanup
         String name = player.getName();
-        if (TFM_Util.DEVELOPERS.contains(name))
+        if (TFM_Util.RF_DEVELOPERS.contains(name))
         {
             TFM_PlayerData.getPlayerData(player).setCommandSpy(true);
             player.setPlayerListName(ChatColor.DARK_PURPLE + name);
@@ -932,13 +946,6 @@ public class TFM_PlayerListener implements Listener
             {
                 player.setPlayerListName(ChatColor.DARK_PURPLE + name);
                 TFM_PlayerData.getPlayerData(player).setTag("&8[&5FOP-Developer&8]");
-                afterNameSet(player);
-                return;
-            }
-            if (TFM_Util.RF_DEVELOPERS.contains(name))
-            {
-                player.setPlayerListName(ChatColor.DARK_PURPLE + name);
-                TFM_PlayerData.getPlayerData(player).setTag("&8[&5Developer&8]");
                 afterNameSet(player);
                 return;
             }
@@ -1045,6 +1052,46 @@ public class TFM_PlayerListener implements Listener
         }
     }
 
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onPlayerJump(PlayerMoveEvent event)
+    {
+        Location from = event.getFrom();
+        Location to = event.getTo();
+        if (to.getBlockY() > from.getBlockY())
+        {
+            Player player = event.getPlayer();
+            if (FOPM_TFM_Util.isDoubleJumper(player))
+            {
+                player.setAllowFlight(true);
+            }
+        }
+    }
+
+    @EventHandler
+    public void doubleJump(PlayerToggleFlightEvent event)
+    {
+        final Player player = event.getPlayer();
+        if (event.isFlying() && FOPM_TFM_Util.isDoubleJumper(player))
+        {
+            player.setFlying(false);
+            Vector jump = player.getLocation().getDirection().multiply(2).setY(1.1);
+            player.setVelocity(player.getVelocity().add(jump));
+            event.setCancelled(true);
+        }
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onPlayerDrinkPotion(PlayerItemConsumeEvent event)
+    {
+        Player player = event.getPlayer();
+        if (event.getItem().getType() == Material.POTION && !FOPM_TFM_Util.isHighRank(player))
+        {
+            player.sendMessage(ChatColor.GREEN + "Please use /potion to add potion effects, thank you!");
+            event.setCancelled(true);
+        }
+    }
+
+    // Disable GM/GOD PVP
     @EventHandler
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event)
     {
