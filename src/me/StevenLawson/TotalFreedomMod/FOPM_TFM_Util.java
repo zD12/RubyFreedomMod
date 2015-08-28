@@ -15,9 +15,7 @@ import org.bukkit.entity.Player;
 public class FOPM_TFM_Util
 {
     /*
-     *
      *  Uses extremely old FOPM changes to the TFM
-     *
      */
 
     public static boolean inGod(Player player)
@@ -202,7 +200,7 @@ public class FOPM_TFM_Util
                 return " " + player.getLastLoginName();
             }
         }
-        return "";
+        return "didntwork";
     }
 
     public static boolean isDoubleJumper(Player player)

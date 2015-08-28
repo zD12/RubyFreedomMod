@@ -21,7 +21,7 @@ public class TFM_ServerListener implements Listener
 
         if (TFM_BanManager.isIpBanned(ip))
         {
-            event.setMotd(ChatColor.RED + "Hey, guess what " + FOPM_TFM_Util.getPlayerFromIp(ip) + "? You are banned.");
+            event.setMotd(ChatColor.RED + "You are banned.");
             return;
         }
 
@@ -58,6 +58,13 @@ public class TFM_ServerListener implements Listener
             motd.append(TFM_Util.randomChatColor()).append(word).append(" ");
         }
 
-        event.setMotd(TFM_Util.colorize(motd.toString()));
+        if ("didntwork".equals(FOPM_TFM_Util.getPlayerFromIp(ip)))
+        {
+            event.setMotd(TFM_Util.colorize(motd.toString()) + "\nWelcome to our server!");
+        }
+        else
+        {
+            event.setMotd(TFM_Util.colorize(motd.toString()) + "\nWelcome back " + FOPM_TFM_Util.getPlayerFromIp(ip));
+        }
     }
 }

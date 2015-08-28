@@ -314,7 +314,7 @@ public class TFM_CommandBlocker
 
             if (action == CommandBlockerAction.BLOCK_UNKNOWN)
             {
-                TFM_Util.playerMsg(sender, "Unknown command. Type \"help\" for help.", ChatColor.RESET);
+                TFM_Util.playerMsg(sender, "Unknown command. Type \"/help\" for help.", ChatColor.RESET);
                 return;
             }
 

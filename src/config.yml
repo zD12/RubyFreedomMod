@@ -12,7 +12,7 @@ server:
   address: rfreedom.fadehost.com
 
   # Shown at the server list
-  motd: RubyFreedom &8- Minecraft %mcversion%
+  motd: RubyFreedom &8- Spigot %mcversion%
 
   # Every word in the MOTD will be a different color unless prefixed by a color code
   colorful_motd: true
