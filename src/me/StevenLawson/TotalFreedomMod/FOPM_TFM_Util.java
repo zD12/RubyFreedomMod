@@ -200,7 +200,7 @@ public class FOPM_TFM_Util
                 return " " + player.getLastLoginName();
             }
         }
-        return "didntwork";
+        return "";
     }
 
     public static boolean isDoubleJumper(Player player)

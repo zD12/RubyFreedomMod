@@ -58,13 +58,8 @@ public class TFM_ServerListener implements Listener
             motd.append(TFM_Util.randomChatColor()).append(word).append(" ");
         }
 
-        if ("didntwork".equals(FOPM_TFM_Util.getPlayerFromIp(ip)))
-        {
-            event.setMotd(TFM_Util.colorize(motd.toString()) + "\nWelcome to our server!");
-        }
-        else
-        {
-            event.setMotd(TFM_Util.colorize(motd.toString()) + "\nWelcome back " + FOPM_TFM_Util.getPlayerFromIp(ip));
-        }
+        String message = String.format("Welcome to our server %s!", FOPM_TFM_Util.getPlayerFromIp(ip));
+
+        event.setMotd(TFM_Util.colorize(motd.toString()) + "\n" + message);
     }
 }
