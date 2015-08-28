@@ -58,7 +58,7 @@ public class TFM_ServerListener implements Listener
             motd.append(TFM_Util.randomChatColor()).append(word).append(" ");
         }
 
-        String message = String.format("Welcome to our server %s!", FOPM_TFM_Util.getPlayerFromIp(ip));
+        String message = String.format("Welcome to our server%s!", FOPM_TFM_Util.getPlayerFromIp(ip));
 
         event.setMotd(TFM_Util.colorize(motd.toString()) + "\n" + message);
     }
